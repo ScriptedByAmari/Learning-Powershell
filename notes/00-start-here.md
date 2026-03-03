@@ -10,7 +10,7 @@ This repository documents my PowerShell learning progression from command usage 
 ## Learning approach
 - Small, repeatable examples
 - Notes written in plain language
-- постепенное progression (commands → snippets → scripts)
+- Gradual progression (commands → snippets → scripts)
 
 ## Next milestones
 - Read and explain small scripts line-by-line
