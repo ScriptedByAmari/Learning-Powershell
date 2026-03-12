@@ -30,7 +30,7 @@ Thinking about scripts this way made the overall structure much easier to unders
 ## The Core Building Blocks to Learn (In Order)
 
 The order below matters.  
-Learning these concepts in sequence makes it easier to gradually understand scripting logic.
+Learning these concepts in sequence makes it easier to gradually understand and build on scripting logic.
 
 ---
 
@@ -48,7 +48,7 @@ They help explain what a line of code is meant to do, but PowerShell ignores the
 
 ### 2. Commands
 
-Commands are the instructions we give the system.
+Commands are the specific, actionable instructions we give the system to perform a particular task.
 
 For example:
 
@@ -70,7 +70,7 @@ Get-ChildItem
 
 ### 3. Variables
 
-Variables are labelled containers where information can be stored for later use.
+Variables are like labelled containers where information can be stored for later use.
 
 ```powershell
 $ComputerName = hostname
@@ -86,7 +86,7 @@ Breaking that down:
 
 ### 4. Output
 
-Output displays information to the screen.
+Output displays whatever's contained in quotes onscreen.
 
 ```powershell
 Write-Output "Computer name is $ComputerName"
@@ -118,7 +118,7 @@ This is the point where a list of commands becomes an actual script.
 
 Pipelines are one of the most important parts of PowerShell.
 
-They work like a conveyor belt, sending the output of one command directly into another.
+They work like conveyor belts, sending the output of one command directly into another.
 
 ```powershell
 Get-Service | Where-Object { $_.Status -eq "Running" }
