@@ -2,44 +2,43 @@
 
 ## What a PowerShell Script Actually Is
 
-A PowerShell script is just a text file ending in `.ps1` that contains instructions PowerShell reads **from top to bottom**.
+A PowerShell script is simply a text file that ends in `.ps1`.  
+Inside that file are instructions that PowerShell reads from top to bottom.
 
-It helps to frame it as:
+One way to think about it is this:
 
-> A script is a repeatable set of troubleshooting or admin steps.
+> A script is just a repeatable set of troubleshooting or administrative steps.
 
 ---
 
-# The Anatomy of a PowerShell Script
+## The Anatomy of a PowerShell Script
 
-To begin understanding PowerShell scripts, it helped to think of a script like a **cooking recipe**.
+When I first started trying to understand PowerShell scripts, it helped to think of a script like a cooking recipe.
 
-Most recipes have at least **three main parts**:
+Most recipes have three main parts.
 
-| Recipe Concept | PowerShell Equivalent |
+| Recipe concept | PowerShell equivalent |
 |---|---|
-| **The Title** – What are we making? | The script name |
-| **The Ingredients** – What data are we using? | Variables |
-| **The Instructions** – What are we doing with the ingredients? | Commands and logic |
+| The title – what are we making? | The script name |
+| The ingredients – what are we using? | Variables |
+| The instructions – what do we do with the ingredients? | Commands and logic |
 
-This analogy allowed me to grasp the fundamentals before beginning to explore the core building blocks of a PowerShell script.
-
----
-
-# The Core Building Blocks You Should Learn (In Order)
-
-This is the order I’d recommend learning.  
-The order matters if you want to build scripting logic **gradually and coherently**.
+Thinking about scripts this way made the overall structure much easier to understand before diving into the individual pieces.
 
 ---
 
-## 1. Comments
+## The Core Building Blocks to Learn (In Order)
 
-Comments are notes that provide context for humans and help us understand what a line of code is intended to do.
+The order below matters.  
+Learning these concepts in sequence makes it easier to gradually understand scripting logic.
 
-PowerShell **ignores them when code is run**.
+---
 
-Example:
+### 1. Comments
+
+Comments are notes written for humans.
+
+They help explain what a line of code is meant to do, but PowerShell ignores them when the script runs.
 
 ```powershell
 # This script checks the computer name
@@ -47,20 +46,19 @@ Example:
 
 ---
 
-## 2. Commands
+### 2. Commands
 
-Commands are the **actual instructions**.  
-We tell the system to do something specific.
+Commands are the instructions we give the system.
 
-Example:
+For example:
 
 ```powershell
 Get-Date
 ```
 
-PowerShell loves the **Verb-Noun format**, which helps make it one of the easier scripting languages to read.
+PowerShell follows a Verb-Noun naming style, which makes commands easier to read.
 
-### Verb–Noun examples
+Examples:
 
 ```
 Get-Process
@@ -70,99 +68,89 @@ Get-ChildItem
 
 ---
 
-## 3. Variables
+### 3. Variables
 
-Variables are like **labelled containers** where you can store information for later use.
-
-Example:
+Variables are labelled containers where information can be stored for later use.
 
 ```powershell
 $ComputerName = hostname
 ```
 
-Explanation:
+Breaking that down:
 
-- `$` tells PowerShell you're creating a variable
-- `=` is the **assignment operator**
-- The value on the right is stored in the variable
+- `$` tells PowerShell we are creating a variable
+- `=` assigns a value
+- the value on the right gets stored in the variable
 
 ---
 
-## 4. Output
+### 4. Output
 
-Output instructs the computer to **display information**.
-
-Example:
+Output displays information to the screen.
 
 ```powershell
 Write-Output "Computer name is $ComputerName"
 ```
 
-When run, PowerShell prints:
+When the script runs, PowerShell prints something like:
 
 ```
 Computer name is ___
 ```
 
-Where the blank is replaced with the value stored in `$ComputerName`.
+The blank is replaced by whatever value was stored in `$ComputerName`.
 
 ---
 
-## 5. Logic
+### 5. Logic
 
-Logic is where a script **starts making decisions**.
-
-Example:
+Logic is where scripts begin to make decisions.
 
 ```powershell
-if ($ComputerName) {Write-Output "Computer name found"}
+if ($ComputerName) { Write-Output "Computer name found" }
 ```
 
-Logic is what turns a list of commands into **actual scripting**.
+This is the point where a list of commands becomes an actual script.
 
 ---
 
-## 6. Pipelines
+### 6. Pipelines
 
-Pipelines are a core part of PowerShell logic.
+Pipelines are one of the most important parts of PowerShell.
 
-They function like a **conveyor belt**, passing the output of one command into another.
-
-Example:
+They work like a conveyor belt, sending the output of one command directly into another.
 
 ```powershell
-Get-Service | Where-Object {$_.Status -eq "Running"}
+Get-Service | Where-Object { $_.Status -eq "Running" }
 ```
 
-The pipeline (`|`) sends the output of `Get-Service` into `Where-Object`.
+The pipe symbol `|` passes the results of `Get-Service` into `Where-Object`.
 
 ---
 
-## 7. Objects and Properties
+### 7. Objects and Properties
 
-PowerShell works with **structured objects**, not just plain text.
-
-Example:
+Unlike many traditional shells, PowerShell works with structured objects rather than plain text.
 
 ```powershell
 Get-Process | Select-Object Name, Id, CPU
 ```
 
-This command asks for specific **properties** from each process object.
+This command selects specific properties from each process object.
 
 ---
 
-# How to Read a Script Without Panicking
+## How to Read a Script Without Panicking
 
-Once I learned to identify the core building blocks, I began learning how to **dissect scripts instead of trying to understand everything at once**.
+When looking at a script for the first time, it helps to break it down rather than trying to understand everything at once.
 
-It helps to ask the following questions in order:
+Questions that help:
 
-1. What is the script trying to do overall?
-2. Which lines are **comments**?
-3. Which lines create **variables**?
-4. Which lines are **commands**?
-5. Which lines make **decisions** (`if`, `else`, loops)?
-6. Which lines produce **output**?
+1. What is the script trying to accomplish overall?
+2. Which lines are comments?
+3. Which lines create variables?
+4. Which lines are commands?
+5. Which lines contain logic (`if`, `else`, loops)?
+6. Which lines produce output?
 
-Breaking scripts down this way makes them much easier to understand.
+Looking at scripts through that lens makes them much easier to understand.
