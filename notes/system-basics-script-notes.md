@@ -1,4 +1,6 @@
 # PowerShell Notes — system-basics.ps1
+## Related Script
+See: ../scripts/system-basics.ps1
 
 ## Context
 This note captures my breakdown and understanding of a simple PowerShell script (`system-basics.ps1`). The goal is not memorisation, but understanding structure, logic, and how PowerShell behaves.
